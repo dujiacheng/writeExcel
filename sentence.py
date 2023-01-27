@@ -53,6 +53,9 @@ def analysis(filepath,word):
     iobjdobj = iobjdobj.split(',')
     pobj = sample(iobjdobj, k=1)
    # print('作双宾', iobjdobj)
+    tenselist=['现在进行时','一般现在时','一般过去时','一般将来时','现在完成时']
+    tense = sample(tenselist, k=1)
+    print(tense)
 
 
 def adj(filepath, word):
@@ -145,18 +148,17 @@ def humanAndObject():
 
 
 if __name__ == "__main__":
-    objpath='/Users/fire/Documents/note/nick-english/object.csv'
-    verbpath='/Users/fire/Documents/note/nick-english/verb.csv'
-    humanpath='/Users/fire/Documents/note/nick-english/human.csv'
-    adjpath='/Users/fire/Documents/note/nick-english/adj.csv'
+    #workpath='/Users/fire/Documents/note/nick-english/'
+    workpath='./'
+
+    objpath= workpath + 'object.csv'
+    verbpath= workpath + 'verb.csv'
+    humanpath= workpath + 'human.csv'
+    adjpath= workpath + 'adj.csv'
 
     word = sys.argv[1]
-    tenselist=['现在进行时','一般现在时','一般过去时','一般将来时','现在完成时']
-
-    #tense = sample(tenselist, k=1)
-   # print(tense)
-    #analysis(objpath,word)
-    
     verb(verbpath,word)
     humanAndObject()
-   # adj(adjpath,word)
+
+   #analysis(objpath,word)
+   #adj(adjpath,word)
