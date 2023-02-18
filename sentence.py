@@ -92,9 +92,10 @@ def verb(filepath,word):
           binbu = re.split(r'[ ,]', df.loc[index]['宾补'])
           binbu = sample(binbu, k=1)
         if 'transformation' in df and str(df.at[index, 'transformation']) != 'nan':
-          tense = ['一般过去时','过去完成时','现在进行时','一般现在时','一般将来时']
+          tense = [ '一般现在时','一般过去时','过去完成时','现在进行时','一般将来时']
           transformation = re.split(r'[ ,]', df.loc[index]['transformation'])
           verb = df.loc[index]['verb']
+          # 增加一个动词原型 对应 一般将来时
           transformation.append(verb)
           #transformation = sample(transformation, k=1)
           num = random.randint(0, 4)
@@ -148,8 +149,8 @@ def humanAndObject():
 
 
 if __name__ == "__main__":
-    #workpath='/Users/fire/Documents/note/nick-english/'
-    workpath='./'
+    workpath='/Users/fire/Documents/note/nick-english/sentence/'
+    #workpath='./'
 
     objpath= workpath + 'object.csv'
     verbpath= workpath + 'verb.csv'
@@ -160,5 +161,6 @@ if __name__ == "__main__":
     verb(verbpath,word)
     humanAndObject()
 
-   #analysis(objpath,word)
-   #adj(adjpath,word)
+    #analysis(objpath,word)
+
+    #adj(adjpath,word)
